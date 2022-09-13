@@ -1,5 +1,6 @@
 import "./Header_Sign.css"
 import React from 'react';
+import {Link} from "react-router-dom"
 import logo from "./../../assets/argentBankLogo.png"
 
 const Header_SignIn = () => {
@@ -10,10 +11,10 @@ const Header_SignIn = () => {
                 <h1 className="sr-only">Argent Bank</h1>
             </a>
             <div>
-                <a className="main-nav-item" href="./signIn.jsx">
+                <Link to="/SignIn" className="main-nav-item" >
                     <i className="fa fa-user-circle"></i>
                     Sign In
-                </a>
+                </Link>
             </div>
         </nav>
     );

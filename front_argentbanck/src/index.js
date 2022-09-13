@@ -4,20 +4,23 @@ import {BrowserRouter, Routes, Route } from "react-router-dom";
 
 import './index.css';
 import IndexHome from './pages/IndexHome';
+import Footer from './components/footer/Footer';
+import SignIn from './pages/SignIn';
 //import User from "./pages/User"
-//import SignIn from "./pages/SignIn"
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <BrowserRouter>
-    <Routes>
-      <Route path="/" element={<IndexHome />} />
-      {/*<Route path="/" element={<User />} />
-      <Route path="/" element={<SignIn />} />*/}
-    </Routes>
-
-    </BrowserRouter>  
+  <React.StrictMode>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<IndexHome />} />
+        <Route path="/SignIn" element={<SignIn />} />
+      </Routes>
+      <Footer />
+    </BrowserRouter>
+  </React.StrictMode>
+  
 );
 
 

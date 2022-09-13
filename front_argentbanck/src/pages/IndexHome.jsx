@@ -1,6 +1,5 @@
 import React from 'react';
 import HeaderSignIn from '../components/header_SignIn/Header_SignIn';
-import Footer from "../components/footer/Footer"
 import "./../style/IndexHome.css"
 import chat from "./../assets/icon-chat.png"
 import money from "./../assets/icon-money.png"
@@ -47,7 +46,6 @@ const IndexHome = () => {
                     </div>
                 </section>
             </main>
-            <Footer />
         </div>
     );
 };
