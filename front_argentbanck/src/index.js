@@ -18,7 +18,9 @@ root.render(
         <Route path="/SignIn" element={<SignIn />} />
         <Route path="/User" element={<User />} />
       </Routes>
+
       <Footer />
+      
     </BrowserRouter>
   </React.StrictMode>
   
