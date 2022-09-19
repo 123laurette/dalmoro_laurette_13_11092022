@@ -1,16 +1,9 @@
-const url = `http://localhost:3000/api/v1/user`;
-
-console.log (url)
-
-const getData = async (id) => {
+const getData = async () => {
     
-    let urlDemande = url+ `/${id}/`;
-    console.log (urlDemande)
+    const response = await fetch (`http://localhost:3000/api/v1/user`);
+    console.log (response)
 
-    const data = await fetch(urlDemande);
-    console.log (data)
-
-    const dataFetch = await data.json();
+    const dataFetch = await response.json();
     console.log(dataFetch)
 }
 
