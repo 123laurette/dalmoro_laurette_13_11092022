@@ -11,18 +11,16 @@ import User from "./pages/User"
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<IndexHome />} />
         <Route path="/SignIn" element={<SignIn />} />
-        <Route path="/User" element={<User />} />
+        <Route path="/User/:id" element={<User />} />
       </Routes>
 
       <Footer />
       
     </BrowserRouter>
-  </React.StrictMode>
   
 );
 

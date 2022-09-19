@@ -1,10 +1,33 @@
 import React from 'react';
-import {Link} from "react-router-dom"
-
+import {useNavigate, useParams} from "react-router-dom"
+import dataFetch from "../services/fetchApi"
 import "./../style/SignIn.css"
 import HeaderSignIn from '../components/header_SignIn/Header_SignIn';
+import { useState, useEffect } from 'react';
 
-const SignIn = () => {
+
+function SignIn() {
+    const {id} = useParams()
+    console.log (id)
+    const navigate = useNavigate()
+    const [dataUser, setDataUser] = useState(false)
+
+    useEffect(() => {
+        dataFetch(id)
+
+        .then(data => {
+            if (typeof data !== "undefined") {setDataUser(data)
+        }else{
+            navigate("/Error")
+        }
+        })
+        .catch(error => console.log("pas de données transmises", error))
+    },
+    [id, navigate])
+
+    if(!dataUser){
+        return null
+    }
     return (
         <div>
             <HeaderSignIn/>
@@ -15,18 +38,16 @@ const SignIn = () => {
                     <form>
                         <div className="input-wrapper">
                             <label >Username</label>
-                            <input type="text" id="username" />
+                            <input type="email" id="email" value={`${dataUser.data.email}`} />
                         </div>
                         <div className="input-wrapper">
                             <label >Password</label>
-                            <input type="password" id="password" />
+                            <input type="password" id="data.password" />
                         </div>
                         <div className="input-remember">
                             <input type="checkbox" id="remember-me" /><label>Remember me</label>
                         </div>
-                        <Link to="/User">
-                        <button className="sign-in-button">Sign In</button>
-                        </Link>
+                        <button className="sign-in-button" type='submit'>Sign In</button>
 
                     </form>
                 </section>
@@ -36,3 +57,27 @@ const SignIn = () => {
 };
 
 export default SignIn;
+
+
+/*function SignIn () {
+    const {id} = useParams()
+    console.log (id)
+    const navigate = useNavigate()
+    const [dataUser, setDataUser] = useState(false)
+
+    useEffect(() => {
+        dataFetch(id)
+
+        .then(data => {
+            if (typeof data !== "undefined") {setDataUser(data)
+        }else{
+            navigate("/Error")
+        }
+        })
+        .catch(error => console.log("pas de données transmises", error))
+    },
+    [id, navigate])
+
+    if(!dataUser){
+        return null
+    }*/
