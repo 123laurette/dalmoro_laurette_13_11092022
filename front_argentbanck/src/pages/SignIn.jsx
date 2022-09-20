@@ -1,34 +1,14 @@
 import React from 'react';
-import {useNavigate, useParams} from "react-router-dom"
-import user from "../services/fetchApi"
+//import {useNavigate, useParams} from "react-router-dom"
+//import user from "../services/fetchApi"
 import "./../style/SignIn.css"
 import HeaderSignIn from '../components/header_SignIn/Header_SignIn';
-import { useState, useEffect } from 'react';
+//import { useState, useEffect } from 'react';
 
 
 
 function SignIn() {
-    const {id} = useParams()
-    console.log (id)
-    const navigate = useNavigate()
-    const [dataUser, setDataUser] = useState(false)
 
-    useEffect(() => {
-        user(id)
-
-        .then(data => {
-            if (setDataUser(data)) {setDataUser(data)
-        }else{
-            navigate("/Error")
-        }
-        })
-        .catch(error => console.log("pas de données transmises", error))
-    },
-    [id, navigate])
-
-    if(!dataUser){
-        return null
-    }
     return (
         <div>
             <HeaderSignIn/>
@@ -60,3 +40,24 @@ function SignIn() {
 export default SignIn;
 
 
+/*const {id} = useParams()
+console.log (id)
+const navigate = useNavigate()
+const [dataUser, setDataUser] = useState(false)
+
+useEffect(() => {
+    user(id)
+
+    .then(data => {
+        if (setDataUser(data)) {setDataUser(data)
+    }else{
+        navigate("/Error")
+    }
+    })
+    .catch(error => console.log("pas de données transmises", error))
+},
+[id, navigate])
+
+if(!dataUser){
+    return null
+}*/
