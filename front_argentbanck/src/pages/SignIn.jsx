@@ -1,4 +1,6 @@
 import React from 'react';
+import {Link} from "react-router-dom"
+
 //import {useNavigate, useParams} from "react-router-dom"
 //import user from "../services/fetchApi"
 import "./../style/SignIn.css"
@@ -19,17 +21,18 @@ function SignIn() {
                     <form>
                         <div className="input-wrapper">
                             <label >Username</label>
-                            <input type="email" id="email" />
+                            <input type="text" id="lastName" />
                         </div>
                         <div className="input-wrapper">
                             <label >Password</label>
-                            <input type="current-password" id="data.password"/>
+                            <input type="password" id="password"/>
                         </div>
                         <div className="input-remember">
                             <input type="checkbox" id="remember-me" /><label>Remember me</label>
                         </div>
-                        <button className="sign-in-button" type='submit'>Sign In</button>
-
+                        <Link to="/User">
+                            <button className="sign-in-button" type='submit'>Sign In</button>
+                        </Link>
                     </form>
                 </section>
             </main>

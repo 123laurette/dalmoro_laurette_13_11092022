@@ -15,7 +15,7 @@ root.render(
       <Routes>
         <Route path="/" element={<IndexHome />} />
         <Route path="/SignIn" element={<SignIn />} />
-        <Route path="/User/:id" element={<User />} />
+        <Route path="/User" element={<User />} />
       </Routes>
 
       <Footer />
@@ -23,5 +23,7 @@ root.render(
     </BrowserRouter>
   
 );
+
+//<Route path="/User/:" element={<User />} />
 
 
