@@ -1,39 +1,61 @@
 import React from 'react';
-import {Link} from "react-router-dom"
-
-//import {useNavigate, useParams} from "react-router-dom"
-//import user from "../services/fetchApi"
 import "./../style/SignIn.css"
-import HeaderSignIn from '../components/header_SignIn/Header_SignIn';
-//import { useState, useEffect } from 'react';
+import HeaderSignIn from '../components/header_SignIn/Header_SignIn'
+import {useDispatch} from 'react-redux'
+import {useNavigate} from "react-router-dom"
+import {useState} from "react"
+import { fetchUserToken, fetchUserData, setRemember } from '../redux/action_copie'
+
 
 
 
 function SignIn() {
+    const dispatch = useDispatch()
+    const navigate = useNavigate()
+    const {email, setEmail} = useState("")
+    const {password, setPassword} = useState("")
+    const {invalid, setInvalid} = useState(false)
+
+    async function login(e) {
+        e.preventDefault()
+
+        const remember = document.getElementById("remember-me").ariaChecked
+        const userLogin = {email, password}
+        const token =  dispatch(fetchUserToken(userLogin))
+
+        if (!token) {
+            setInvalid(true)
+            return;
+        }
+        setInvalid(false)
+        dispatch(fetchUserData(token))
+
+        remember ? setRemember(token.remember) : sessionStorage.setItem("token", token)
+        navigate("/profile")
+    }
 
     return (
-        <div>
+        <div className='pageContainer'>
             <HeaderSignIn/>
             <main className="main bg-dark">
                 <section className="sign-in-content">
                     <i className="fa fa-user-circle sign-in-icon"></i>
                     <h1>Sign In</h1>
-                    <form>
+                    <form onSubmit={login}>
                         <div className="input-wrapper">
                             <label >Username</label>
-                            <input type="text" id="lastName" />
+                            <input type="text" id="lastName" setEmailvalue={(e) => setEmail(e.target.value)}/>
                         </div>
                         <div className="input-wrapper">
                             <label >Password</label>
-                            <input type="password" id="password"/>
+                            <input type="password" id="password" setPasswordvalue={(e) => setPassword(e.target.value)}/>
                         </div>
                         <div className="input-remember">
-                            <input type="checkbox" id="remember-me" /><label>Remember me</label>
+                            <input type="checkbox" id="remember-me" /><label htmlFor="remember-me">Remember me</label>
                         </div>
-                        <Link to="/User">
-                            <button className="sign-in-button" type='submit'>Sign In</button>
-                        </Link>
+                            <button className="sign-in-button">Sign In</button>
                     </form>
+                    {invalid ? <div className='messageConnexionError'>invalid credentials</div> : null}
                 </section>
             </main>
         </div>
@@ -43,24 +65,3 @@ function SignIn() {
 export default SignIn;
 
 
-/*const {id} = useParams()
-console.log (id)
-const navigate = useNavigate()
-const [dataUser, setDataUser] = useState(false)
-
-useEffect(() => {
-    user(id)
-
-    .then(data => {
-        if (setDataUser(data)) {setDataUser(data)
-    }else{
-        navigate("/Error")
-    }
-    })
-    .catch(error => console.log("pas de données transmises", error))
-},
-[id, navigate])
-
-if(!dataUser){
-    return null
-}*/

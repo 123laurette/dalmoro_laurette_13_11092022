@@ -24,6 +24,6 @@ root.render(
   
 );
 
-//<Route path="/User/:" element={<User />} />
+//<Route path="/User/:id" element={<User />} />
 
 
