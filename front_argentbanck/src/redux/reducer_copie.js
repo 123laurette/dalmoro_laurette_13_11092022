@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit"
+/*import { createSlice } from "@reduxjs/toolkit"
 
 const initialState = {
     tokenStatut: "void",
@@ -53,4 +53,4 @@ const {actions, reducer} = createSlice({
     }
 }
 })
-export {actions,reducer}
+export {actions,reducer}*/

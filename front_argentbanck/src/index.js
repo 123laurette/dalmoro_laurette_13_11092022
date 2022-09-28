@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import {BrowserRouter, Routes, Route } from "react-router-dom";
-
+import { Routes, Route, Router } from "react-router-dom";
+import { Provider } from "react-redux";
+import store from "./redux/store";
 import './index.css';
 import IndexHome from './pages/IndexHome';
 import Footer from './components/footer/Footer';
@@ -11,16 +12,18 @@ import User from "./pages/User"
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-    <BrowserRouter>
-      <Routes>
+  <Provider store={store}>
+    <Router>
+    <Routes>
         <Route path="/" element={<IndexHome />} />
         <Route path="/SignIn" element={<SignIn />} />
         <Route path="/User" element={<User />} />
-      </Routes>
+    </Routes>
 
-      <Footer />
+    <Footer />
+    </Router>
+  </Provider>      
       
-    </BrowserRouter>
   
 );
 

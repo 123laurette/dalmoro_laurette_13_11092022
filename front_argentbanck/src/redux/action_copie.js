@@ -1,4 +1,4 @@
-import { actions} from "./reducer_copie"
+/*import { actions} from "./reducer_copie"
 import { selectUser } from "./selectors_copie"
 import SignIn from "../pages/SignIn"
 
@@ -78,4 +78,4 @@ function fetchUserToken(userLogin) {
             }
         }
 
-        export  {setRemember, fetchUserToken,fetchUserData }
+        export  {setRemember, fetchUserToken,fetchUserData }*/
