@@ -2,6 +2,7 @@
     height: 780px;
     padding-top: 8px;
 }
+
 .sign-in-button {
     display: block;
     width: 100%;
@@ -12,6 +13,7 @@
     border-color: #00bc77;
     background-color: #00bc77;
     color: #fff;
+    cursor: pointer;
 }
 
 .sign-in-content {
@@ -31,22 +33,11 @@
     display: flex;
 }
 
+.input-remember input{
+    cursor: pointer;
+}
+
 .input-remember label {
     margin-left: 0.25rem;
 }
 
-.input-wrapper {
-    display: flex;
-    flex-direction: column;
-    text-align: left;
-    margin-bottom: 1rem;
-}
-
-.input-wrapper label {
-    font-weight: bold;
-}
-
-.input-wrapper input {
-    padding: 5px;
-    font-size: 1.2rem;
-}

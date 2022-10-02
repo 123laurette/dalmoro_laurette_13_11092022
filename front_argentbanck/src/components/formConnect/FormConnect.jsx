@@ -1,3 +1,5 @@
+import "./FormConnect.css"
+
 function FormConnect({ setEmailValue, setPasswordValue }) {
     return (
         <div>

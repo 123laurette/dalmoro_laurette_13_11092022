@@ -5,7 +5,6 @@ import { useSelector, useDispatch } from "react-redux/es/exports";
 import { useEffect } from "react";
 import { fetchUserData, signOut } from "../redux/actions";
 import { useNavigate } from "react-router-dom";
-import "../style/User.css"
 
 function Userpage() {
     const userData = useSelector(selectUser)

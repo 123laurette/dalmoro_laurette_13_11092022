@@ -69,7 +69,6 @@ function Header() {
                     Sign In
                 </div>
             </nav>
-
     )
 }
 

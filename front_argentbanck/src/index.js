@@ -16,13 +16,17 @@ root.render(
   <React.StrictMode>
     <Provider store={store}>
       <BrowserRouter>
+
         <Header />
+
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/login' element={<SignIn />} />
           <Route path='/profile' element={<User />} />
         </Routes>
+
         <Footer />
+        
       </BrowserRouter>
     </Provider>
   </React.StrictMode>
