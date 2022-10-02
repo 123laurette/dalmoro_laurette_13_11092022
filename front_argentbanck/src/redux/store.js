@@ -1,19 +1,11 @@
-import userReducer from "../features/user"
 import { configureStore } from "@reduxjs/toolkit";
-//import { applyMiddleware, compose, legacy_createStore } from "redux";
-//import user from "../middlewares/index";
+import userReducer from '../redux/reducer';
 
-
-const store = configureStore({
+export default configureStore({
     reducer: {
-        user:userReducer,
-
+        user: userReducer,
     }
 })
-
-
-
-export default store;
 
 
 

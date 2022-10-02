@@ -1,5 +1,5 @@
 //contient la logique redux concernant la récup datas user
-import produce from "immer";
+/*import produce from "immer";
 import { selectUser } from "../redux/selectors_copie"
 
 
@@ -87,4 +87,4 @@ export async function fetchOrUpdateUser(store, userLogin) {
     }catch(error) {
         store.dispatch(userRejected(error))
     }
-}
+}*/
