@@ -119,76 +119,85 @@ paths:
 
 
   
-  /user/account/transactions:
+  /user/transactions/{transactionsAccountID}:
     get:
       security:
         - Bearer: []
       tags:
-        - Acount transactions
+        - Acount checking transactions
       summary: User transactions API
-      description: API for account Transactions
+      description: API for account checking Transactions
       parameters:
         - in: header
           name: Authorization
           description: Attach Bearer JWT token
           type : string
           required: true
-        - in: body
-          name: body
-          description: Login Payload
+          
+        - name: transactionsAccountID
+          in: path
           required: true
-          schema:
-            $ref: '#/definitions/TransactionsAccount'
+          description: Account transactions
+          type: integer
+        
       produces:
         - application/json
       responses:
         '200':
-          description: Login Successfully
+          description: Detail transactions successfully
           schema:
-            $ref: '#/definitions/ApiResponse'
+            $ref: '#/definitions/TransactionsAccount'
         '400':
           description: Invalid Fields
         '500':
           description: Internal Server Error
           
-  /user/detail/transaction:
+          
+  /user/transactions/{transactionsAccountID}/{transactionID}:
     get:
       security:
         - Bearer: []
       tags:
-        - Detail transaction
-      summary: User transaction detail API
-      description: API for detail Transaction
+        - Acount checking transactions
+      summary: User transaction API
+      description: API for account checking Transaction
       parameters:
         - in: header
           name: Authorization
           description: Attach Bearer JWT token
           type : string
           required: true
-        - in: body
-          name: body
-          description: Login Payload
+          
+        - name: transactionsAccountID
+          in: path
           required: true
-          schema:
-            $ref: '#/definitions/TransactionDetail'
+          description: Account transactions
+          type: integer
+          
+        - name: transactionID
+          in: path
+          required: true
+          description: transaction detail
+          type: integer
+        
       produces:
         - application/json
       responses:
         '200':
-          description: Login Successfully
+          description: Detail transaction successfully
           schema:
-            $ref: '#/definitions/ApiResponse'
+            $ref: '#/definitions/TransactionDetail'
         '400':
           description: Invalid Fields
         '500':
-          description: Internal Server Error        
+          description: Internal Server Error
+  
           
-  /user/info/transaction:
     put:
       security:
         - Bearer: []
       tags:
-        - Informations transaction
+        - Acount checking transactions
       summary: User transaction Informations API
       description: API for Informations Transaction
       parameters:
@@ -197,28 +206,37 @@ paths:
           description: Attach Bearer JWT token
           type : string
           required: true
-        - in: body
-          name: body
-          description: Login Payload
+          
+        - name: transactionsAccountID
+          in: path
           required: true
+          description: Account transactions
+          type: integer
+          
+        - name: transactionID
+          in: path
+          required: true
+          description: modified information
+          type: integer
           schema:
             $ref: '#/definitions/TransactionInformation'
       produces:
         - application/json
       responses:
         '200':
-          description: Login Successfully
+          description: modified information Successfully
           schema:
-            $ref: '#/definitions/ApiResponse'
+            $ref: '#/definitions/TransactionInformation'
         '400':
           description: Invalid Fields
         '500':
           description: Internal Server Error   
+          
     delete:
       security:
         - Bearer: []
       tags:
-        - Informations transaction
+        - Acount checking transactions
       summary: User transaction Informations API
       description: API for Informations Transaction
       parameters:
@@ -227,24 +245,74 @@ paths:
           description: Attach Bearer JWT token
           type : string
           required: true
-        - in: body
-          name: body
-          description: Login Payload
+          
+        - name: transactionsAccountID
+          in: path
           required: true
+          description: Account transactions
+          type: integer
+          
+        - name: transactionID
+          in: path
+          required: true
+          description: information removed
+          type: integer
+
           schema:
             $ref: '#/definitions/TransactionInformation'
+          
       produces:
         - application/json
       responses:
         '200':
-          description: Login Successfully
+          description: information removed Successfully
           schema:
-            $ref: '#/definitions/ApiResponse'
+            $ref: '#/definitions/TransactionInformation'
         '400':
           description: Invalid Fields
         '500':
-          description: Internal Server Error       
+          description: Internal Server Error   
           
+          
+    post:
+      security:
+        - Bearer: []
+      tags:
+        - Acount checking transactions
+      summary: User transaction Informations API
+      description: API for Informations Transaction
+      parameters:
+        - in: header
+          name: Authorization
+          description: Attach Bearer JWT token
+          type : string
+          required: true
+          
+        - name: transactionsAccountID
+          in: path
+          required: true
+          description: Account transactions
+          type: integer
+          
+        - name: transactionID
+          in: path
+          required: true
+          description: information created
+          type: integer
+          schema:
+            $ref: '#/definitions/TransactionInformation'
+          
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: information created Successfully
+          schema:
+            $ref: '#/definitions/TransactionInformation'
+        '400':
+          description: Invalid Fields
+        '500':
+          description: Internal Server Error   
           
           
           
