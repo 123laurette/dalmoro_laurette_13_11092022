@@ -179,7 +179,6 @@ paths:
           required: true
           description: transaction detail
           type: integer
-        
       produces:
         - application/json
       responses:
@@ -206,7 +205,7 @@ paths:
           description: Attach Bearer JWT token
           type : string
           required: true
-          
+
         - name: transactionsAccountID
           in: path
           required: true
@@ -218,6 +217,9 @@ paths:
           required: true
           description: modified information
           type: integer
+          
+        - name: param
+          in: body
           schema:
             $ref: '#/definitions/TransactionInformation'
       produces:
@@ -226,7 +228,8 @@ paths:
         '200':
           description: modified information Successfully
           schema:
-            $ref: '#/definitions/TransactionInformation'
+            $ref: '#/definitions/TransactionMessage'
+          
         '400':
           description: Invalid Fields
         '500':
@@ -257,17 +260,14 @@ paths:
           required: true
           description: information removed
           type: integer
-
-          schema:
-            $ref: '#/definitions/TransactionInformation'
-          
       produces:
         - application/json
       responses:
         '200':
           description: information removed Successfully
           schema:
-            $ref: '#/definitions/TransactionInformation'
+            $ref: '#/definitions/TransactionMessage'
+          
         '400':
           description: Invalid Fields
         '500':
@@ -299,16 +299,17 @@ paths:
           required: true
           description: information created
           type: integer
+        - name: param
+          in: body
           schema:
             $ref: '#/definitions/TransactionInformation'
-          
       produces:
         - application/json
       responses:
         '200':
           description: information created Successfully
           schema:
-            $ref: '#/definitions/TransactionInformation'
+            $ref: '#/definitions/TransactionMessage'
         '400':
           description: Invalid Fields
         '500':
@@ -324,6 +325,7 @@ securityDefinitions:
     type: apiKey
     name: Authorization
     in: header
+
 definitions:
   User:
     properties:
@@ -379,20 +381,22 @@ definitions:
         
         
   TransactionsAccount:
-    type: object
-    properties:
-      date:
-        type: string
-        description: date transaction
-      description:
-        type: string
-        description: description transaction
-      amount:
-        type: number
-        description: amount transaction
-      balance:
-        type: number
-        description: solde account
+    type: array
+    items:
+      type: object
+      properties:
+        date:
+          type: string
+          description: date transaction
+        description:
+          type: string
+          description: description transaction
+        amount:
+          type: number
+          description: amount transaction
+        balance:
+          type: number
+          description: solde account
         
   TransactionDetail:
     type: object
@@ -416,4 +420,11 @@ definitions:
       category:
         type: string
         description : information category transaction
+  
+  TransactionMessage:
+    type: object
+    properties:
+      message:
+        type: string
+        description: operation successully
       
