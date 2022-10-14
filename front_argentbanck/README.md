@@ -1,3 +1,36 @@
+![logo argentBank](https://github.com/123laurette/dalmoro_laurette_13_11092022/blob/master/front_argentbanck/src/assets/argentBankLogo.png
+
+
+# Project 13 - Argent Bank
+
+
+## Prerequisites
+NodeJS
+npm
+MongoDB Community Server
+
+Run the yarn command will allow you to install the dependencies npm install or yarn install
+
+
+## Installing the app
+Forke and clone the repository : https://github.com/123laurette/dalmoro_laurette_13_11092022.git
+
+
+### Backend
+Open a new terminal and run cd Backend command  
+Then run the npm run dev:server command
+
+### FrontEnd
+Open a new terminal and run cd fron_argentbanck  
+Then run the npm start 
+
+
+
+Author
+laurette DAL MORO
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
