@@ -20,7 +20,7 @@ Open a new terminal and run cd Backend command
 Then run the npm run dev:server command
 
 ### FrontEnd
-Open a new terminal and run cd fron_argentbanck  
+Open a new terminal and run cd front_argentbanck  
 Then run the npm start 
 
 
@@ -28,7 +28,7 @@ Then run the npm start
 Author
 laurette DAL MORO
 
-
+**************************************************************************************
 
 # Getting Started with Create React App
 
