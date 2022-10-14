@@ -1,5 +1,4 @@
-![logo argentBank](https://github.com/123laurette/dalmoro_laurette_13_11092022/blob/master/front_argentbanck/src/assets/argentBankLogo.png
-
+![logo argentBank](https://github.com/123laurette/dalmoro_laurette_13_11092022/blob/master/front_argentbanck/src/assets/argentBankLogo.png)
 
 # Project 13 - Argent Bank
 
